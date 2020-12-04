@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiber</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    
+
+    <div class="container pt-5">
+        <input class="form-control mb-3" type="text" placeholder="Напиште вопрос" id="search-text" onkeyup="tableSearch()">
+        <table class="table table-striped" id="info-table">
+            <thead>
+                <tr>
+                    <th>Вопросы</th>
+                    <th>Ответы</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Конфиденциальность - это … ?</th>
+                    <th>Защита от несанкционированного «чтения»</th>
+                </tr>
+                <tr>
+                    <th>Обеспечение доступности - … ?</th>
+                    <th>Защита от несанкционированного «выполнения»</th>
+                </tr>
+                <tr>
+                    <th>Обеспечение целостности - …?</th>
+                    <th>Защита от несанкционированной «записи» </th>
+                </tr>
+                <tr>
+                    <th>Почему нужно думать как злоумышленник?</th>
+                    <th>Для выявления потенциальных рисков</th>
+                </tr>
+                <tr>
+                    <th>Для чего необходимо системное мышление?</th>
+                    <th>Чтобы обеспечить гарантированные действия</th>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+
+<script>
+    function tableSearch() {
+        var phrase = document.getElementById('search-text');
+        var table = document.getElementById('info-table');
+        var regPhrase = new RegExp(phrase.value, 'i');
+        var flag = false;
+        for (var i = 1; i < table.rows.length; i++) {
+            flag = false;
+            for (var j = table.rows[i].cells.length - 1; j >= 0; j--) {
+                flag = regPhrase.test(table.rows[i].cells[j].innerHTML);
+                if (flag) break;
+            }
+            if (flag) {
+                table.rows[i].style.display = "";
+            } else {
+                table.rows[i].style.display = "none";
+            }
+
+        }
+    }
+</script>
+
+</body>
+</html>
