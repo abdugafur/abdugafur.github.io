@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiber</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Кибербезопасность ответы на тестов</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="main.css">
 </head>
 <body>
     
 
     <div class="container pt-5">
-        <input class="form-control mb-3" type="text" placeholder="Напиште вопрос" id="search-text" onkeyup="tableSearch()">
-        <table class="table table-striped" id="info-table">
+				<div class="links btn-group d-flex flex-wrap justify-content-around mb-3 w-100">
+					<a class="btn btn-secondary mb-2" href="diskret.html">Дискретная Математик</a>
+					<a class="btn btn-secondary mb-2" href="eis.html">Электроника и схемы</a>
+					<a class="btn btn-primary mb-2" href="index.html">Кибербезопасность</a>
+					<a class="btn btn-secondary mb-2" href="database.html">База данных</a>
+					<a class="btn btn-secondary mb-2" href="sda.html">Структура данных</a>
+				</div>
+        <input class="form-control mb-3" type="text" placeholder="Напиште вопрос"onkeyup="tableSearch()">
+        <table class="table table-striped info">
             <thead>
                 <tr>
                     <th>Вопросы</th>
@@ -1067,27 +1075,7 @@
         </table> 
     </div>
 
-<script>
-    function tableSearch() {
-        var phrase = document.getElementById('search-text');
-        var table = document.getElementById('info-table');
-        var regPhrase = new RegExp(phrase.value, 'i');
-        var flag = false;
-        for (var i = 1; i < table.rows.length; i++) {
-            flag = false;
-            for (var j = table.rows[i].cells.length - 1; j >= 0; j--) {
-                flag = regPhrase.test(table.rows[i].cells[j].innerHTML);
-                if (flag) break;
-            }
-            if (flag) {
-                table.rows[i].style.display = "";
-            } else {
-                table.rows[i].style.display = "none";
-            }
-
-        }
-    }
-</script>
+<script src="main.js"></script>
 
 </body>
 </html>
